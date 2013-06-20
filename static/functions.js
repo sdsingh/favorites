@@ -5,7 +5,7 @@
     // toggling the favorites star
   
     //REPLACE WITH LINKS TO YOUR FAVORITES BUTTON IMAGES (src1 is not favorited, src2 is favorited)
-    var imgSRC={'src1':'/static/images/star_off.png','src2':'/static/images/star_on.png'};
+    var imgSRC={'src1':'/static/images/not_favorited.png','src2':'/static/images/favorited.png'};
     //Controller for button of something that is not favorited
     $('.favorites').live('click', function() {
         var img=$(this);
