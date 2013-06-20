@@ -43,3 +43,26 @@ def delete_favorite(request):
     if request.META.has_key('HTTP_REFERRER'):
         return HttpResponseRedirect(request.META['HTTP_REFERRER'])
     return HttpResponseRedirect('/')
+
+
+"""
+Jquery will deal with live updating of the favorites button image when it is clicked, but we  need something 
+to handle the display on pageload. This can be done by passing in a variable, is_favorite, in the context for
+whatever page will display the favoritable items. For example, the following code is a general idea of what to do
+"""
+
+#This assumes you've generated a list of all the favoritableItems you want to show
+for favoritable in favoritableItems:
+  if favoritable.favorited_by.all():
+    favoritable.is_favorite = True
+  else:
+    favoriteable.is_favorite = False
+    
+    """
+    favorites will be a list containing information about each favoritable item, passed in the context
+    and allowing for information about each FavoritableItem to be rendered on the viewable page
+    """
+    favorites[favoritable.id] = {'is_favorite':m.is_favorite} #... other fields to be passed in context
+    
+#Note: Check the html file to see how the context is used
+  
