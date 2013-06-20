@@ -62,7 +62,9 @@ for favoritable in favoritableItems:
     favorites will be a list containing information about each favoritable item, passed in the context
     and allowing for information about each FavoritableItem to be rendered on the viewable page
     """
-    favorites[favoritable.id] = {'is_favorite':m.is_favorite} #... other fields to be passed in context
+    favorites[favoritable.id] = {'is_favorite':m.is_favorite} #add other fields to be passed in favs portion of context
+    
+  data = {'favorites': favorites.items()} #... other fields to be passed in context
     
 #Note: Check the html file to see how the context is used
   
