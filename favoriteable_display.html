@@ -1,4 +1,10 @@
-
-{% for key, value in  reversed %}
+{% for key, value in  favorites reversed %}
+<!-->Note: My favorites are ordered from oldest to newest, so here I use favorites reversed <-->
 <div class='favoritable'>
-  <h1>
+  <h1>{{ value.name }}</h1>
+  {% if value.is_favorite %}
+    <!---> Replace with correct path <---->
+    <img src="images/favorited.jpg", class="favorites_on"/>
+  {% else %}
+    <img src="images/not_favorited.jpg", class="favorites"/>
+  {% endif %}
