@@ -8,3 +8,14 @@
   {% else %}
     <img src="images/not_favorited.jpg", class="favorites"/>
   {% endif %}
+
+
+<!---> This script passes the user's authentication status to a JS file <---->
+        <script>
+            {% if request.user.is_authenticated %}
+                USER_STATUS = 'true';
+            {% else %}
+                USER_STATUS = 'false';
+            {% endif %};
+        </script>
+    
