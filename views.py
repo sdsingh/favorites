@@ -53,10 +53,14 @@ whatever page will display the favoritable items. For example, the following cod
 
 #This assumes you've generated a list of all the favoritableItems you want to show
 for favoritable in favoritableItems:
-  if favoritable.favorited_by.all():
-    favoritable.is_favorite = True
-  else:
-    favoriteable.is_favorite = False
+        if not request.user.is_authenticated():
+            m.is_favorite = False
+        else:
+            try:
+                m.favorited_by.get(user=request.user)
+                m.is_favorite = True
+            except ObjectDoesNotExist:
+                m.is_favorite = False
     
     """
     favorites will be a list containing information about each favoritable item, passed in the context
